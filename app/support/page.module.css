@@ -1,0 +1,129 @@
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 140px 1.5rem 4rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.faqSection {
+  margin-bottom: 4rem;
+}
+
+.faqSection h2 {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: 1.5rem;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  border-bottom: 1px solid var(--border-color, #eaeaea);
+  padding: 1.25rem 0;
+}
+
+.details:first-of-type {
+  border-top: 1px solid var(--border-color, #eaeaea);
+}
+
+.summary {
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text-primary);
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.summary:hover {
+  color: var(--accent-color);
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-tertiary);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.details[open] .summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.answer {
+  padding-top: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.details[open] .answer {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.contactCard {
+  background-color: var(--bg-secondary, #f9fafb);
+  border-radius: var(--radius-lg, 24px);
+  padding: 2.5rem;
+  text-align: center;
+  border: 1px solid var(--border-color, #eaeaea);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.contactCard h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.contactCard p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.email {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.125rem;
+  color: var(--accent-color);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  display: inline-block;
+}

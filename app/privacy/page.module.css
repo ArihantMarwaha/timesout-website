@@ -1,0 +1,300 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 140px 1.5rem 5rem;
+}
+
+.headerSection {
+  margin-bottom: 2.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-sage);
+  border: 2px solid var(--border-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.metaInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono, monospace);
+  margin-bottom: 1.5rem;
+}
+
+.leadCard {
+  background: #ffffff;
+  border: 3px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-brutal);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.leadCard p:first-child {
+  margin-bottom: 1rem;
+}
+
+.privacyHighlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(152, 245, 225, 0.25);
+  border: 2px dashed var(--border-color);
+  border-radius: 20px;
+  padding: 1rem 1.25rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.highlightIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.section {
+  background: #ffffff;
+  border: 3px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-brutal);
+  margin-bottom: 2rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(44, 40, 37, 0.1);
+}
+
+.sectionNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-lemon);
+  border: 2px solid var(--border-color);
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.sectionTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.subsection {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+}
+
+.subsection:first-of-type {
+  margin-top: 1rem;
+}
+
+.subsectionTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subsectionContent {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.98rem;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bulletItem {
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.bulletItem::before {
+  content: '•';
+  position: absolute;
+  left: 0.35rem;
+  top: -0.05rem;
+  font-size: 1.3rem;
+  color: var(--bg-cta);
+  font-weight: bold;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.pillarCard {
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pillarIcon {
+  font-size: 1.4rem;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 0.25rem;
+}
+
+.pillarTitle {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.pillarText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.paragraph {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.98rem;
+  margin-bottom: 0.75rem;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.externalLink {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color var(--transition-smooth);
+}
+
+.externalLink:hover {
+  color: var(--bg-cta);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  font-size: 0.98rem;
+}
+
+.contactLabel {
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 140px;
+}
+
+.contactValue {
+  color: var(--text-secondary);
+}
+
+.contactValue a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contactValue a:hover {
+  color: var(--bg-cta);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 100px 1.25rem 3rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .leadCard {
+    padding: 1.25rem;
+  }
+
+  .contactItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .contactLabel {
+    min-width: unset;
+  }
+}

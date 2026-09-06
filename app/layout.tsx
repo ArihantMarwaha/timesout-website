@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "TimesOut — Tasks, with time built in.",
   description:
     "TimesOut is a task management app for Apple platforms with focus sessions, timers, and deep system integration.",
+  verification: {
+    google: "google5729bbeb3d7099a1",
+  },
 };
 
 export default function RootLayout({

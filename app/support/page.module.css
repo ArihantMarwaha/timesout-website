@@ -1,21 +1,22 @@
 .container {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 140px 1.5rem 4rem;
+  padding: 140px 1.5rem 5rem;
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.4rem, 6vw, 3.5rem);
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   color: var(--text-secondary);
   margin-bottom: 3rem;
+  font-weight: 500;
 }
 
 .faqSection {
@@ -24,40 +25,54 @@
 
 .faqSection h2 {
   font-family: var(--font-mono, monospace);
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text-tertiary);
   margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .faqList {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .details {
-  border-bottom: 1px solid var(--border-color, #eaeaea);
-  padding: 1.25rem 0;
+  background: var(--bg-card);
+  border: 3px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-brutal-sm);
+  padding: 0 1.25rem;
+  transition: transform var(--transition-bounce), box-shadow var(--transition-bounce);
 }
 
-.details:first-of-type {
-  border-top: 1px solid var(--border-color, #eaeaea);
+.details:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-brutal);
+}
+
+.details[open] {
+  background: var(--bg-primary);
 }
 
 .summary {
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 1.15rem;
+  font-weight: 800;
   cursor: pointer;
   list-style: none;
   position: relative;
-  padding-right: 2rem;
+  padding: 1.25rem 2.5rem 1.25rem 0;
   color: var(--text-primary);
-  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.2s ease;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
 }
 
 .summary:hover {
-  color: var(--accent-color);
+  color: var(--bg-cta);
 }
 
 .summary::-webkit-details-marker {
@@ -70,60 +85,100 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--text-tertiary);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .details[open] .summary::after {
   transform: translateY(-50%) rotate(45deg);
+  color: var(--bg-cta);
 }
 
 .answer {
-  padding-top: 1rem;
+  padding: 0 0 1.25rem 0;
   color: var(--text-secondary);
-  line-height: 1.7;
-  font-size: 1rem;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.details[open] .answer {
-  max-height: 500px;
-  opacity: 1;
+  line-height: 1.65;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-top: 2px dashed rgba(44, 40, 37, 0.1);
+  margin-top: 0.25rem;
+  padding-top: 1rem;
 }
 
 .contactCard {
-  background-color: var(--bg-secondary, #f9fafb);
-  border-radius: var(--radius-lg, 24px);
-  padding: 2.5rem;
+  background-color: var(--color-sage);
+  border: var(--border-thick);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2rem;
   text-align: center;
-  border: 1px solid var(--border-color, #eaeaea);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-brutal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .contactCard h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 900;
   color: var(--text-primary);
+  letter-spacing: -0.03em;
 }
 
 .contactCard p {
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  max-width: 460px;
+  margin-bottom: 12px;
 }
 
-.email {
+.emailButton {
   font-family: var(--font-mono, monospace);
-  font-size: 1.125rem;
-  color: var(--accent-color);
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--bg-tertiary);
-  border-radius: var(--radius-md);
-  display: inline-block;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  padding: 14px 28px;
+  background-color: var(--bg-card);
+  border: 3px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-brutal-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  min-height: 48px;
+  transition: all var(--transition-bounce);
+}
+
+.emailButton:hover,
+.emailButton:active {
+  background-color: var(--color-lemon);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-brutal);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 110px 1.25rem 3rem;
+  }
+
+  .contactCard {
+    padding: 2.25rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .emailButton {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 12px 18px;
+  }
 }

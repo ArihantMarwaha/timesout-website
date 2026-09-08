@@ -18,10 +18,13 @@
   --text-tertiary: #8B837C;
 
   /* Typography */
-  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, 'JetBrains Mono', 'Fira Code', monospace;
+  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
 
   /* Pill-owy Shapes */
+  --radius-sm: 12px;
+  --radius-md: 20px;
   --radius-lg: 36px;
   --radius-xl: 48px;
   --radius-pill: 9999px;
@@ -39,12 +42,21 @@
   /* Grid pattern variables */
   --grid-color: rgba(44, 40, 37, 0.05); /* very faint charcoal */
   --grid-size: 32px;
+
+  /* Safe areas for mobile devices */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -54,8 +66,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  
-  /* Notebook grid pattern moved to RippleGrid component */
+  width: 100%;
+}
+
+/* Accessibility: Visible Focus Rings */
+:focus-visible {
+  outline: 3px solid var(--border-color);
+  outline-offset: 3px;
 }
 
 /* Base styles */
@@ -86,4 +103,23 @@ button {
 ::selection {
   background: var(--color-lemon);
   color: var(--text-primary);
+}
+
+/* Hide scrollbars for horizontal snap showcases */
+.noScrollbar::-webkit-scrollbar {
+  display: none;
+}
+.noScrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

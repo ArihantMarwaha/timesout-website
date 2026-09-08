@@ -202,22 +202,25 @@ const SwarmCursor = ({
 }: SwarmCursorProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const propsRef = useRef<SwarmConfig>({} as SwarmConfig);
-  propsRef.current = {
-    color,
-    accentColor,
-    count,
-    size,
-    merge,
-    glow,
-    opacity,
-    spread,
-    separation,
-    speed,
-    wander,
-    trail,
-    scatterOnClick,
-    enabled
-  };
+
+  useEffect(() => {
+    propsRef.current = {
+      color,
+      accentColor,
+      count,
+      size,
+      merge,
+      glow,
+      opacity,
+      spread,
+      separation,
+      speed,
+      wander,
+      trail,
+      scatterOnClick,
+      enabled
+    };
+  }, [color, accentColor, count, size, merge, glow, opacity, spread, separation, speed, wander, trail, scatterOnClick, enabled]);
 
   useEffect(() => {
     const container = containerRef.current;

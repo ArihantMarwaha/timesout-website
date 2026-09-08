@@ -186,8 +186,13 @@ export default function RippleGrid({
     isHovering.current = 1;
     resize();
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let animationId: number;
+    let isPaused = false;
+
     const render = (time: number) => {
+      if (isPaused) return;
+
       uniforms.iTime.value = time * 0.001;
       uniforms.scrollOffset.value = [window.scrollX, window.scrollY];
       
@@ -203,13 +208,35 @@ export default function RippleGrid({
       uniforms.mousePosition.value = [mousePos.current.x, mousePos.current.y];
       
       renderer.render({ scene: mesh });
-      animationId = requestAnimationFrame(render);
+
+      // If user prefers reduced motion, render a single static frame instead of continuous loop
+      if (!prefersReducedMotion) {
+        animationId = requestAnimationFrame(render);
+      }
     };
 
-    animationId = requestAnimationFrame(render);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isPaused = true;
+        cancelAnimationFrame(animationId);
+      } else {
+        isPaused = false;
+        if (!prefersReducedMotion) {
+          animationId = requestAnimationFrame(render);
+        } else {
+          renderer.render({ scene: mesh });
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Initial render
+    render(0);
 
     return () => {
       cancelAnimationFrame(animationId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', resize);
       if (mouseInteraction) {
         window.removeEventListener('mousemove', handleMouseMove);

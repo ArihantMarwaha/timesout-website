@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+}
+
+.alignCenter {
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignLeft {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.summaryText {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* On desktop, show the full details inline seamlessly */
+.desktopOnly {
+  display: inline;
+}
+
+/* Smooth Accordion for Mobile */
+.accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, margin-top 0.28s ease;
+  opacity: 0;
+  width: 100%;
+}
+
+.accordion.expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 6px;
+}
+
+.accordionInner {
+  overflow: hidden;
+}
+
+.detailsText {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.48;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.toggleBtn {
+  display: none; /* Hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: rgba(44, 40, 37, 0.05);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  margin-top: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px var(--border-color);
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggleBtn:active {
+  transform: scale(0.96);
+  background-color: var(--color-lemon);
+}
+
+.icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+/* Mobile overrides */
+@media (max-width: 768px) {
+  .alignLeft {
+    align-items: center;
+    text-align: center;
+  }
+
+  .summaryText {
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  .desktopOnly {
+    display: none; /* Hidden on mobile by default */
+  }
+
+  .toggleBtn {
+    display: inline-flex;
+  }
+}

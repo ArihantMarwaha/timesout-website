@@ -66,6 +66,15 @@ export const metadata: Metadata = {
   verification: {
     google: "google5729bbeb3d7099a1",
   },
+  icons: {
+    icon: [
+      { url: '/icon.png', sizes: '64x64', type: 'image/png' },
+      { url: '/app-icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 const jsonLd = {
@@ -77,11 +86,11 @@ const jsonLd = {
       "name": "TimesOut: Daily Planner & ToDo",
       "alternateName": ["TimesOut", "TimesOut App"],
       "headline": "Aesthetic Daily Planner & Task Manager with Focus Timers",
-      "operatingSystem": "iOS, iPadOS, macOS, watchOS",
+      "operatingSystem": "iOS, iPadOS",
       "applicationCategory": "ProductivityApplication",
       "description":
         "TimesOut is an aesthetic daily planner and task manager for Apple platforms with focus timers, Lock Screen Live Activities, widgets, and private iCloud sync.",
-      "image": "https://timesoutapp.vercel.app/screenshots/cover-hero.jpeg",
+      "image": "https://timesoutapp.vercel.app/app-icon.png",
       "url": "https://timesoutapp.vercel.app",
       "offers": {
         "@type": "Offer",

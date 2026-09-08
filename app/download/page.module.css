@@ -18,6 +18,25 @@
   align-items: center;
 }
 
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.appIcon {
+  width: 96px;
+  height: 96px;
+  border-radius: 22.5%;
+  box-shadow: 0 16px 36px rgba(25, 23, 21, 0.14), 0 3px 8px rgba(25, 23, 21, 0.08);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.appIcon:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
 .badge {
   display: inline-flex;
   align-items: center;

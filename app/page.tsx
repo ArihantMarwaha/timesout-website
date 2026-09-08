@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 import RippleGrid from "@/components/RippleGrid/RippleGrid";
+import ExpandableText from "@/app/components/ExpandableText";
 
 export default function Home() {
   return (
@@ -14,11 +15,26 @@ export default function Home() {
         <section className={styles.heroSection}>
           <div className={styles.container}>
             <div className={styles.heroContent}>
-              <h1 className={`${styles.heroTitle} ${styles.fadeInSection}`}>Tasks, with time built in.</h1>
-              <p className={`${styles.heroSubtitle} ${styles.fadeInSection}`} style={{ animationDelay: '100ms' }}>
-                The aesthetic daily planner and task manager for iPhone. Organize your day, crush distractions with countdown focus timers, and keep tasks alive on your Lock Screen.
-              </p>
-              <div className={styles.fadeInSection} style={{ animationDelay: '200ms' }}>
+              <div className={`${styles.heroAppIconWrapper} ${styles.fadeInSection}`}>
+                <Image 
+                  src="/app-icon.png" 
+                  alt="TimesOut App Icon" 
+                  width={96} 
+                  height={96} 
+                  className={styles.heroAppIcon}
+                  priority
+                />
+              </div>
+              <h1 className={`${styles.heroTitle} ${styles.fadeInSection}`}>
+                <span className={styles.heroHighlight}>Tasks == TimesOut</span>
+              </h1>
+              <ExpandableText
+                summary="The aesthetic daily planner and task manager for iPhone and iPad."
+                details="Organize your day, crush distractions with countdown focus timers, and keep tasks alive on your Lock Screen."
+                className={styles.fadeInSection}
+                align="center"
+              />
+              <div className={styles.fadeInSection} style={{ animationDelay: '200ms', marginTop: '16px' }}>
                 <Link href="/download" className={styles.ctaButton}>
                   Download on the App Store
                 </Link>
@@ -26,16 +42,43 @@ export default function Home() {
             </div>
 
             <div className={styles.heroImages}>
-              <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch} ${styles.heroPrimaryImg} ${styles.fadeInSection}`} style={{ animationDelay: '200ms' }}>
-                <Image 
-                  src="/screenshots/cover-hero.jpeg" 
-                  alt="TimesOut aesthetic daily planner and focus timer app interface" 
-                  width={390} 
-                  height={844} 
-                  sizes="(max-width: 768px) 245px, 390px"
-                  className={styles.phoneImage}
-                  priority
-                />
+              <div className={styles.heroTriptych}>
+                {/* Left Phone (Daily) - behind middle */}
+                <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch} ${styles.heroLeftPhone} ${styles.fadeInSection}`} style={{ animationDelay: '150ms' }}>
+                  <Image 
+                    src="/screenshots/hero-daily.jpeg" 
+                    alt="TimesOut daily task checklist interface" 
+                    width={390} 
+                    height={844} 
+                    sizes="(max-width: 768px) 140px, 240px"
+                    className={styles.phoneImage}
+                  />
+                </div>
+
+                {/* Middle Primary Phone - in front */}
+                <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch} ${styles.heroCenterPhone} ${styles.fadeInSection}`} style={{ animationDelay: '100ms' }}>
+                  <Image 
+                    src="/screenshots/cover-hero.jpeg" 
+                    alt="TimesOut aesthetic daily planner and focus timer" 
+                    width={390} 
+                    height={844} 
+                    sizes="(max-width: 768px) 180px, 270px"
+                    className={styles.phoneImage}
+                    priority
+                  />
+                </div>
+
+                {/* Right Phone (Tasks) - behind middle */}
+                <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch} ${styles.heroRightPhone} ${styles.fadeInSection}`} style={{ animationDelay: '200ms' }}>
+                  <Image 
+                    src="/screenshots/hero-tasks.jpeg" 
+                    alt="TimesOut task management overview" 
+                    width={390} 
+                    height={844} 
+                    sizes="(max-width: 768px) 140px, 240px"
+                    className={styles.phoneImage}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -44,15 +87,17 @@ export default function Home() {
         {/* =============================================
             2. TASKS
             ============================================= */}
-        <section className={`${styles.section} ${styles.sectionLemon}`}>
+        <section className={`${styles.section} ${styles.sectionPink}`}>
           <div className={styles.container}>
             <div className={`${styles.storySection} ${styles.fadeInSection}`}>
               <div className={styles.storyContent}>
                 <span className={styles.sectionLabel}>TASKS</span>
                 <h2 className={styles.sectionHeading}>More than a checkbox.</h2>
-                <p className={styles.sectionBody}>
-                  Your tasks can contain more than just a title. Set deadlines, assign priority levels, create recurring schedules, add subtasks, and attach dedicated focus sessions.
-                </p>
+                <ExpandableText
+                  summary="Your tasks can contain more than just a title."
+                  details="Set deadlines, assign priority levels, create recurring schedules, add subtasks, and attach dedicated focus sessions."
+                  align="left"
+                />
               </div>
               <div className={styles.storyImage}>
                 <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
@@ -79,10 +124,12 @@ export default function Home() {
               <div className={styles.storyContent}>
                 <span className={styles.sectionLabel}>ORGANIZED</span>
                 <h2 className={styles.sectionHeading}>Everything has a place.</h2>
-                <p className={styles.sectionBody}>
-                  TimesOut organizes your work into three intuitive spaces designed to keep your mind clear and your focus sharp:
-                </p>
-                <div className={styles.spacesSegmented} role="group" aria-label="TimesOut Spaces">
+                <ExpandableText
+                  summary="TimesOut organizes your work into three intuitive spaces."
+                  details="Keep your mind clear and your focus sharp with dedicated views for Daily tasks, anytime items, and Long Term goals."
+                  align="left"
+                />
+                <div className={`${styles.spacesSegmented} ${styles.spacesDesktopOnly}`} role="group" aria-label="TimesOut Spaces">
                   <div className={`${styles.spacePill} ${styles.spacePillDaily}`}>
                     <span>☀️</span> Daily
                   </div>
@@ -95,15 +142,28 @@ export default function Home() {
                 </div>
               </div>
               <div className={styles.storyImage}>
-                <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
-                  <Image 
-                    src="/screenshots/ref-overview-blue.jpeg" 
-                    alt="TimesOut organized spaces: Daily tasks, Anytime tasks, and Long Term goals" 
-                    width={390} 
-                    height={844} 
-                    sizes="(max-width: 768px) 245px, 390px"
-                    className={styles.phoneImage} 
-                  />
+                <div className={styles.spacesPhoneWrapper}>
+                  <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
+                    <Image 
+                      src="/screenshots/11.jpeg" 
+                      alt="TimesOut task archive and focus session interface" 
+                      width={390} 
+                      height={844} 
+                      sizes="(max-width: 768px) 245px, 390px"
+                      className={styles.phoneImage} 
+                    />
+                  </div>
+                  <div className={`${styles.spacesSegmented} ${styles.spacesMobileOnly}`} role="group" aria-label="TimesOut Spaces">
+                    <div className={`${styles.spacePill} ${styles.spacePillDaily}`}>
+                      <span>☀️</span> Daily
+                    </div>
+                    <div className={`${styles.spacePill} ${styles.spacePillTasks}`}>
+                      <span>⚡</span> Tasks
+                    </div>
+                    <div className={`${styles.spacePill} ${styles.spacePillLongTerm}`}>
+                      <span>🗓️</span> Long Term
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -113,15 +173,17 @@ export default function Home() {
         {/* =============================================
             4. FOCUS
             ============================================= */}
-        <section className={`${styles.section} ${styles.sectionLavender}`}>
+        <section className={`${styles.section} ${styles.sectionOrange}`}>
           <div className={styles.container}>
             <div className={`${styles.storySection} ${styles.fadeInSection}`}>
               <div className={styles.storyContent}>
                 <span className={styles.sectionLabel}>FOCUS</span>
                 <h2 className={styles.sectionHeading}>When it&apos;s time, focus.</h2>
-                <p className={styles.sectionBody}>
-                  Assign a dedicated amount of time to a task. When you&apos;re ready to work, start the timer and focus until completion.
-                </p>
+                <ExpandableText
+                  summary="Assign a dedicated amount of time to any task."
+                  details="When you&apos;re ready to work, start the countdown timer and stay locked in until completion."
+                  align="left"
+                />
               </div>
               <div className={styles.storyImage}>
                 <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
@@ -147,9 +209,11 @@ export default function Home() {
             <div className={`${styles.featuresHeader} ${styles.fadeInSection}`}>
               <span className={styles.sectionLabel}>AT A GLANCE</span>
               <h2 className={styles.sectionHeading}>Put tasks on your Home Screen.</h2>
-              <p className={styles.sectionBody} style={{ margin: '0 auto', textAlign: 'center' }}>
-                Interactive widgets designed around your workflows. View Daily and Long Term tasks, add tasks quickly, or control an active focus session right from your Home Screen.
-              </p>
+              <ExpandableText
+                summary="Interactive widgets designed around your workflows."
+                details="View Daily and Long Term tasks, add tasks quickly, or control an active focus session right from your Home Screen."
+                align="center"
+              />
               <div className={styles.swipeBadge}>✦ Swipe to explore ✦</div>
             </div>
             <div className={`${styles.bentoGrid} noScrollbar`}>
@@ -198,9 +262,11 @@ export default function Home() {
               <div className={styles.storyContent}>
                 <span className={styles.sectionLabel}>STAYS WITH YOU</span>
                 <h2 className={styles.sectionHeading}>Start once. Keep it with you.</h2>
-                <p className={styles.sectionBody}>
-                  Start your focus session once, and keep the timer with you wherever you go. Accessible outside the app via Live Activities and the Dynamic Island.
-                </p>
+                <ExpandableText
+                  summary="Start your focus session once, and keep the timer with you wherever you go."
+                  details="Your active countdown stays easily accessible outside the app via Live Activities and the Dynamic Island."
+                  align="left"
+                />
               </div>
               <div className={styles.storyImage}>
                 <div className={styles.liveFrame}>
@@ -227,9 +293,11 @@ export default function Home() {
               <div className={styles.storyContent}>
                 <span className={styles.sectionLabel}>JUST ASK</span>
                 <h2 className={styles.sectionHeading}>Capture a task without stopping.</h2>
-                <p className={styles.sectionBody}>
-                  With App Intents and Siri support, you can instantly add a task using just your voice.
-                </p>
+                <ExpandableText
+                  summary="Add tasks hands-free using just your voice."
+                  details="With App Intents and Siri voice commands, capture thoughts instantly without breaking your focus or leaving your current task."
+                  align="left"
+                />
               </div>
               <div className={styles.storyImage}>
                 <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
@@ -256,15 +324,17 @@ export default function Home() {
               <div className={styles.storyContent}>
                 <span className={styles.sectionLabel}>SYNCED</span>
                 <h2 className={styles.sectionHeading}>Your tasks follow you.</h2>
-                <p className={styles.sectionBody}>
-                  Sign in with Apple and keep everything synchronized across your Apple devices securely using private iCloud.
-                </p>
+                <ExpandableText
+                  summary="Keep everything synchronized across your Apple devices."
+                  details="Sign in with Apple to sync seamlessly across iPhone and iPad using private, encrypted iCloud storage."
+                  align="left"
+                />
               </div>
               <div className={styles.storyImage}>
                 <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
                   <Image 
                     src="/screenshots/icloud-sync.png" 
-                    alt="Private iCloud sync across iPhone, iPad, and Mac with TimesOut" 
+                    alt="Private iCloud sync across iPhone and iPad with TimesOut" 
                     width={390} 
                     height={844} 
                     sizes="(max-width: 768px) 245px, 390px"
@@ -284,9 +354,11 @@ export default function Home() {
             <div className={`${styles.featuresHeader} ${styles.fadeInSection}`}>
               <span className={styles.sectionLabel}>MAKE IT YOURS</span>
               <h2 className={styles.sectionHeading}>Your tasks. Your colour.</h2>
-              <p className={styles.sectionBody} style={{ margin: '0 auto', textAlign: 'center' }}>
-                TimesOut supports multiple curated color themes, allowing you to personalize the appearance of your daily workspace.
-              </p>
+              <ExpandableText
+                summary="Personalize your daily workspace with curated color themes."
+                details="Choose from light, dark, pastel, and high-contrast palettes designed to match your personal aesthetic."
+                align="center"
+              />
               <div className={styles.swipeBadge}>✦ Swipe to explore ✦</div>
             </div>
             <div className={`${styles.bentoGrid} noScrollbar`}>

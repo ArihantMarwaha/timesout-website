@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Download TimesOut — Coming Soon to the App Store',
+  title: 'Download TimesOut — Arriving on the App Store',
   description:
     'TimesOut: Aesthetic daily planner & to-do task manager is arriving soon on the iOS App Store.',
   alternates: {
@@ -15,6 +16,17 @@ export default function DownloadComingSoonPage() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
+        <div className={styles.iconWrapper}>
+          <Image 
+            src="/app-icon.png" 
+            alt="TimesOut App Icon" 
+            width={96} 
+            height={96} 
+            className={styles.appIcon}
+            priority
+          />
+        </div>
+
         <div className={styles.badge}>
           <span>🚀</span> App Store Release
         </div>

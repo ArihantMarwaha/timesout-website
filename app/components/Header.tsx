@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
 
@@ -62,7 +63,17 @@ export default function Header() {
       <header className={`${styles.header} ${isVisible ? styles.visible : styles.hidden}`}>
         <nav className={styles.nav} aria-label="Main Navigation">
           <div className={styles.logo}>
-            <Link href="/" aria-label="TimesOut Homepage">TimesOut</Link>
+            <Link href="/" aria-label="TimesOut Homepage" className={styles.logoLink}>
+              <Image 
+                src="/app-icon.png" 
+                alt="" 
+                width={30} 
+                height={30} 
+                className={styles.navAppIcon}
+                priority
+              />
+              <span>TimesOut</span>
+            </Link>
           </div>
 
           <div className={styles.desktopNav}>
@@ -114,7 +125,16 @@ export default function Header() {
         className={`${styles.mobileDrawer} ${isMenuOpen ? styles.drawerOpen : ''}`}
       >
         <div className={styles.drawerHeader}>
-          <span className={styles.drawerLogo}>TimesOut</span>
+          <div className={styles.drawerLogoWrapper}>
+            <Image 
+              src="/app-icon.png" 
+              alt="" 
+              width={28} 
+              height={28} 
+              className={styles.drawerAppIcon}
+            />
+            <span className={styles.drawerLogo}>TimesOut</span>
+          </div>
           <button 
             className={styles.drawerCloseBtn} 
             onClick={closeMenu}

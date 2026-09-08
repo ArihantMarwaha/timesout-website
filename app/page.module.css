@@ -414,6 +414,8 @@
 
 .storyContent {
   flex: 0 1 500px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .storyImage {
@@ -454,18 +456,34 @@
    RESPONSIVE BREAKPOINTS (MOBILE REDESIGN)
    ============================================ */
 @media (max-width: 992px) {
+  .section {
+    padding: 40px 20px;
+  }
+
   .storySection, .storyReverse {
     flex-direction: column;
     text-align: center;
-    gap: 32px;
+    gap: 16px;
+  }
+
+  .storyContent {
+    flex: 0 0 auto !important;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
   }
 
   .proCard {
     flex-direction: column;
-    padding: 44px 28px;
-    border-radius: 40px;
-    gap: 40px;
+    padding: 36px 24px;
+    border-radius: 36px;
+    gap: 24px;
     text-align: center;
+  }
+
+  .proTextContent {
+    flex: 0 0 auto !important;
+    width: 100%;
   }
 
   .proFeatureList {
@@ -529,6 +547,11 @@
   /* Tighten gap between text and screenshot on mobile */
   .storySection, .storyReverse {
     gap: 8px !important;
+  }
+
+  .storyContent {
+    flex: 0 0 auto !important;
+    width: 100% !important;
   }
 
   .storyContent .sectionBody:last-child {

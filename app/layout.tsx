@@ -1,53 +1,56 @@
-import type { Metadata } from "next";
-import { JetBrains_Mono, Caveat } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ClickSpark from "@/app/components/ClickSpark";
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-mono",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-hand",
-});
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#FFFCF9",
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://timesoutapp.vercel.app"),
-  title: "TimesOut — Tasks, with time built in.",
+  title: {
+    default: "TimesOut — Aesthetic Daily Planner & To-Do Task Manager",
+    template: "%s | TimesOut",
+  },
   description:
-    "TimesOut is a task management app for Apple platforms with focus sessions, timers, and deep system integration.",
+    "TimesOut is an aesthetic daily planner and task manager for iPhone and Apple devices. Plan your day with focus countdown timers, Lock Screen Live Activities, interactive widgets, and private iCloud sync.",
   keywords: [
     "TimesOut",
     "TimesOut app",
-    "TimesOut tasks",
-    "task management",
-    "focus timer",
-    "iOS productivity app",
+    "aesthetic task manager",
+    "daily planner app",
+    "to-do list with timer",
+    "focus countdown timer",
+    "pomodoro focus timer",
+    "ADHD routine planner",
+    "iOS task manager",
     "Live Activities timer",
-    "Apple widgets task manager",
+    "Dynamic Island task timer",
+    "Apple interactive widgets",
+    "time blocking app",
   ],
   authors: [{ name: "TimesOut" }],
   alternates: {
     canonical: "https://timesoutapp.vercel.app",
   },
   openGraph: {
-    title: "TimesOut — Tasks, with time built in.",
+    title: "TimesOut — Aesthetic Daily Planner & To-Do Task Manager",
     description:
-      "TimesOut is a task management app for Apple platforms with focus sessions, timers, and deep system integration.",
+      "Plan your day and crush your goals with focus timers, Lock Screen Live Activities, and interactive widgets.",
     url: "https://timesoutapp.vercel.app",
     siteName: "TimesOut",
     images: [
       {
-        url: "/screenshots/hero.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "TimesOut App Preview",
+        url: "/screenshots/cover-hero.jpeg",
+        width: 1170,
+        height: 2532,
+        alt: "TimesOut — Aesthetic Daily Planner & Task Manager",
       },
     ],
     locale: "en_US",
@@ -55,10 +58,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TimesOut — Tasks, with time built in.",
+    title: "TimesOut — Aesthetic Daily Planner & To-Do Task Manager",
     description:
-      "TimesOut is a task management app for Apple platforms with focus sessions, timers, and deep system integration.",
-    images: ["/screenshots/hero.jpeg"],
+      "Plan your day with focus timers, Lock Screen Live Activities, and interactive widgets.",
+    images: ["/screenshots/cover-hero.jpeg"],
   },
   verification: {
     google: "google5729bbeb3d7099a1",
@@ -67,17 +70,38 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TimesOut",
-  "operatingSystem": "iOS, iPadOS, macOS, watchOS",
-  "applicationCategory": "ProductivityApplication",
-  "description":
-    "TimesOut is a task management app for Apple platforms with focus sessions, timers, and deep system integration.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-  },
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://timesoutapp.vercel.app/#app",
+      "name": "TimesOut: Daily Planner & ToDo",
+      "alternateName": ["TimesOut", "TimesOut App"],
+      "headline": "Aesthetic Daily Planner & Task Manager with Focus Timers",
+      "operatingSystem": "iOS, iPadOS, macOS, watchOS",
+      "applicationCategory": "ProductivityApplication",
+      "description":
+        "TimesOut is an aesthetic daily planner and task manager for Apple platforms with focus timers, Lock Screen Live Activities, widgets, and private iCloud sync.",
+      "image": "https://timesoutapp.vercel.app/screenshots/cover-hero.jpeg",
+      "url": "https://timesoutapp.vercel.app",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Arihant Marwaha",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://timesoutapp.vercel.app/#website",
+      "name": "TimesOut",
+      "url": "https://timesoutapp.vercel.app",
+      "description":
+        "Official website of TimesOut — Aesthetic Daily Planner & Task Manager with Focus Timers.",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -85,12 +109,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const safeJsonLd = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+
   return (
-    <html lang="en" suppressHydrationWarning className={`${jetbrainsMono.variable} ${caveat.variable}`} data-scroll-behavior="smooth">
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd }}
         />
       </head>
       <body suppressHydrationWarning>

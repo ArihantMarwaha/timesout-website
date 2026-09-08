@@ -3,8 +3,12 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Coming Soon — TimesOut',
-  description: 'TimesOut is coming soon to the Apple App Store. Stay tuned!',
+  title: 'Download TimesOut — Coming Soon to the App Store',
+  description:
+    'TimesOut: Aesthetic daily planner & to-do task manager is arriving soon on the iOS App Store.',
+  alternates: {
+    canonical: 'https://timesoutapp.vercel.app/download',
+  },
 };
 
 export default function DownloadComingSoonPage() {

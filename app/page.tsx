@@ -16,7 +16,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <h1 className={`${styles.heroTitle} ${styles.fadeInSection}`}>Tasks, with time built in.</h1>
             <p className={`${styles.heroSubtitle} ${styles.fadeInSection}`} style={{ animationDelay: '100ms' }}>
-              A task app where you can organize what you need to do and give tasks dedicated time when you need to focus.
+              The aesthetic daily planner and task manager for iPhone. Organize your day, crush distractions with countdown focus timers, and keep tasks alive on your Lock Screen.
             </p>
             <div className={styles.fadeInSection} style={{ animationDelay: '200ms' }}>
               <Link href="/download" className={styles.ctaButton}>
@@ -29,7 +29,7 @@ export default function Home() {
             <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch} ${styles.heroPrimaryImg} ${styles.fadeInSection}`} style={{ animationDelay: '200ms' }}>
               <Image 
                 src="/screenshots/cover-hero.jpeg" 
-                alt="TimesOut App Interface" 
+                alt="TimesOut aesthetic daily planner and focus timer app interface" 
                 width={390} 
                 height={844} 
                 className={styles.phoneImage}
@@ -55,7 +55,7 @@ export default function Home() {
             </div>
             <div className={styles.storyImage}>
               <div className={styles.phoneFrame}>
-                <Image src="/screenshots/ref-newtask-light.jpeg" alt="New Task" width={390} height={844} className={styles.phoneImage} />
+                <Image src="/screenshots/ref-newtask-light.jpeg" alt="TimesOut task creation screen with priority levels, subtasks, and focus timers" width={390} height={844} className={styles.phoneImage} />
               </div>
             </div>
           </div>
@@ -72,15 +72,33 @@ export default function Home() {
               <span className={styles.sectionLabel}>ORGANIZED</span>
               <h2 className={styles.sectionHeading}>Everything has a place.</h2>
               <p className={styles.sectionBody}>
-                TimesOut organizes your work into three spaces:<br /><br />
-                <b>Daily</b> — Tasks relevant to today.<br />
-                <b>Tasks</b> — Anytime tasks without a deadline.<br />
-                <b>Long Term</b> — Upcoming or future tasks.
+                TimesOut organizes your work into three intuitive spaces designed to keep your mind clear and your focus sharp:
               </p>
+              <div className={styles.orgChips}>
+                <div className={styles.orgChip}>
+                  <span className={`${styles.orgChipLabel} ${styles.orgChipDaily}`}>Daily</span>
+                  <span className={styles.orgChipDesc}>Tasks relevant to today.</span>
+                </div>
+                <div className={styles.orgChip}>
+                  <span className={`${styles.orgChipLabel} ${styles.orgChipTasks}`}>Tasks</span>
+                  <span className={styles.orgChipDesc}>Anytime tasks without deadlines.</span>
+                </div>
+                <div className={styles.orgChip}>
+                  <span className={`${styles.orgChipLabel} ${styles.orgChipLongTerm}`}>Long Term</span>
+                  <span className={styles.orgChipDesc}>Upcoming goals &amp; future milestones.</span>
+                </div>
+              </div>
             </div>
             <div className={styles.storyImage}>
               <div className={styles.phoneFrame}>
-                <Image src="/screenshots/ref-overview-blue.jpeg" alt="TimesOut Organization" width={390} height={844} className={styles.phoneImage} />
+                <Image 
+                  src="/screenshots/ref-overview-blue.jpeg" 
+                  alt="TimesOut organized spaces: Daily tasks, Anytime tasks, and Long Term goals" 
+                  width={390} 
+                  height={844} 
+                  sizes="(max-width: 768px) 85vw, 390px"
+                  className={styles.phoneImage} 
+                />
               </div>
             </div>
           </div>
@@ -104,7 +122,7 @@ export default function Home() {
               <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`}>
                 <Image 
                   src="/screenshots/focus-task.jpeg" 
-                  alt="Active focus task with countdown timer and controls" 
+                  alt="TimesOut active focus countdown timer with pause and complete controls" 
                   width={390} 
                   height={844} 
                   className={styles.phoneImage} 
@@ -118,11 +136,11 @@ export default function Home() {
       {/* =============================================
           6. WIDGETS
           ============================================= */}
-      <section className={styles.featuresSection}>
+      <section className={styles.section}>
         <div className={styles.container}>
           <div className={`${styles.featuresHeader} ${styles.fadeInSection}`}>
             <span className={styles.sectionLabel}>AT A GLANCE</span>
-            <h2 className={styles.sectionHeading}>Your tasks, right where you need them.</h2>
+            <h2 className={styles.sectionHeading}>Put tasks on your Home Screen.</h2>
             <p className={styles.sectionBody} style={{ margin: '0 auto', textAlign: 'center' }}>
               Interactive widgets designed around your workflows. View Daily and Long Term tasks, add tasks quickly, or even control an active focus session right from your Home Screen.
             </p>
@@ -132,7 +150,7 @@ export default function Home() {
               <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`} style={{ margin: '0 auto' }}>
                 <Image 
                   src="/screenshots/widget-daily.jpeg" 
-                  alt="TimesOut Daily Tasks Home Screen widget" 
+                  alt="Interactive iOS Home Screen widget for TimesOut daily tasks" 
                   width={390} 
                   height={844} 
                   className={styles.phoneImage} 
@@ -143,7 +161,7 @@ export default function Home() {
               <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`} style={{ margin: '0 auto' }}>
                 <Image 
                   src="/screenshots/widget-focus.jpeg" 
-                  alt="TimesOut active Focus Session widget with pause and completion controls" 
+                  alt="TimesOut focus session widget with live pause and completion controls" 
                   width={390} 
                   height={844} 
                   className={styles.phoneImage} 
@@ -171,7 +189,7 @@ export default function Home() {
               <div className={styles.liveFrame}>
                 <Image 
                   src="/screenshots/live.png" 
-                  alt="iPhone showing an active TimesOut Focus Session Live Activity and Dynamic Island" 
+                  alt="TimesOut Lock Screen Live Activity and Dynamic Island on iPhone" 
                   width={377} 
                   height={747} 
                   className={styles.phoneImage} 
@@ -199,7 +217,7 @@ export default function Home() {
               <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`} style={{ margin: '0 auto' }}>
                 <Image 
                   src="/screenshots/siriscreenshot.png" 
-                  alt="Siri interaction showing a user adding a TimesOut task using a voice command" 
+                  alt="Hands-free Siri task capture voice command in TimesOut" 
                   width={390} 
                   height={844} 
                   className={styles.phoneImage} 
@@ -227,7 +245,7 @@ export default function Home() {
               <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`} style={{ margin: '0 auto' }}>
                 <Image 
                   src="/screenshots/icloud-sync.png" 
-                  alt="Instant Sync with iCloud" 
+                  alt="Private iCloud sync across iPhone, iPad, and Mac with TimesOut" 
                   width={390} 
                   height={844} 
                   className={styles.phoneImage} 
@@ -255,7 +273,7 @@ export default function Home() {
               <div className={`${styles.phoneFrame} ${styles.phoneFrameNoNotch}`} style={{ margin: '0 auto' }}>
                 <Image 
                   src="/screenshots/color-themes.png" 
-                  alt="TimesOut interface with multiple available color themes" 
+                  alt="TimesOut aesthetic color themes and personalized styling" 
                   width={390} 
                   height={844} 
                   className={styles.phoneImage} 
@@ -264,7 +282,7 @@ export default function Home() {
             </div>
             <div className={`${styles.bentoCard} ${styles.bgPeach} ${styles.fadeInSection}`} style={{ animationDelay: '100ms' }}>
               <div className={styles.phoneFrame} style={{ margin: '0 auto' }}>
-                <Image src="/screenshots/ref-overview-black.jpeg" alt="Black Theme" width={390} height={844} className={styles.phoneImage} />
+                <Image src="/screenshots/ref-overview-black.jpeg" alt="TimesOut aesthetic dark theme minimalist interface" width={390} height={844} className={styles.phoneImage} />
               </div>
             </div>
           </div>
@@ -302,26 +320,39 @@ export default function Home() {
 
               <div className={styles.proPricing}>
                 <div className={styles.priceCard}>
-                  <div className={styles.priceLabel}>Monthly</div>
+                  <div>
+                    <div className={styles.priceLabel}>Monthly</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '4px', opacity: 0.7 }}>1 week free trial</div>
+                  </div>
                   <div className={styles.priceAmount}>$2.99</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '4px', opacity: 0.7 }}>1 week free</div>
                 </div>
                 <div className={styles.priceCard}>
-                  <div className={styles.priceLabel}>Yearly</div>
+                  <div>
+                    <div className={styles.priceLabel}>Yearly</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '4px', opacity: 0.7 }}>$2.08 / mo &bull; 30% OFF</div>
+                  </div>
                   <div className={styles.priceAmount}>$24.99</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '4px', opacity: 0.7 }}>$2.08 / month<br/>30% OFF</div>
                 </div>
                 <div className={styles.priceCard}>
-                  <div className={styles.priceLabel}>Lifetime</div>
+                  <div>
+                    <div className={styles.priceLabel}>Lifetime</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '4px', opacity: 0.7 }}>One-time &bull; Best Value</div>
+                  </div>
                   <div className={styles.priceAmount}>$39.99</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, marginTop: '4px', opacity: 0.7 }}>Best Offer</div>
                 </div>
               </div>
             </div>
 
             <div className={styles.proImageContent}>
               <div className={styles.phoneFrame}>
-                <Image src="/screenshots/ref-pro-paywall.jpeg" alt="TimesOut Pro Paywall" width={390} height={844} className={styles.phoneImage} />
+                <Image 
+                  src="/screenshots/ref-pro-paywall.jpeg" 
+                  alt="TimesOut Pro subscription and lifetime purchase options" 
+                  width={390} 
+                  height={844} 
+                  sizes="(max-width: 768px) 85vw, 390px"
+                  className={styles.phoneImage} 
+                />
               </div>
             </div>
           </div>

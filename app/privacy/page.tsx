@@ -5,6 +5,9 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: 'Privacy Policy — TimesOut',
   description: 'Privacy Policy for the TimesOut mobile application.',
+  alternates: {
+    canonical: 'https://timesoutapp.vercel.app/privacy',
+  },
 };
 
 export default function PrivacyPage() {
@@ -75,6 +78,7 @@ export default function PrivacyPage() {
                 href="https://www.revenuecat.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
+                referrerPolicy="no-referrer"
                 className={styles.externalLink}
               >
                 RevenueCat&rsquo;s Privacy Policy

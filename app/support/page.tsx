@@ -2,8 +2,12 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Support — TimesOut',
-  description: 'Get help and find answers to common questions about TimesOut.',
+  title: 'Support & FAQs — TimesOut',
+  description:
+    'Get help, explore frequently asked questions, and learn how to use TimesOut focus sessions, widgets, and iCloud sync.',
+  alternates: {
+    canonical: 'https://timesoutapp.vercel.app/support',
+  },
 };
 
 export default function SupportPage() {
@@ -50,8 +54,25 @@ export default function SupportPage() {
     }
   ];
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <main className={styles.container}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <h1 className={styles.title}>Support</h1>
       <p className={styles.subtitle}>Find answers or get in touch.</p>
 
@@ -70,7 +91,17 @@ export default function SupportPage() {
       <section className={styles.contactCard}>
         <h2>Still need help?</h2>
         <p>Reach out to us and we’ll get back to you as soon as possible.</p>
-        <div className={styles.email}>timesoutsupport@gmail.com</div>
+        <a 
+          href="mailto:timesoutsupport@gmail.com" 
+          className={styles.emailButton} 
+          aria-label="Email TimesOut support at timesoutsupport@gmail.com"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          timesoutsupport@gmail.com
+        </a>
       </section>
     </main>
   );
